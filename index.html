@@ -19,6 +19,9 @@
 	<!-- Google Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Raleway:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
 
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
 	<style>
 		.icon {
 			width: 100%;
@@ -177,7 +180,7 @@
                         <div class="row">
 
                             <!-- Form -->
-                            <form class="reg_form" action="https://formspree.io/your@email.com" method="POST">
+                            <form class="reg_form" id="book">
                                 <div class="col-md-2 reg_book_item">
                                     <input type="text" value="" class="form-control date_picker" name="arrival" required placeholder="Arrival">
                                 </div>
@@ -192,9 +195,10 @@
                                 </div>
                                 <div class="col-md-2 reg_book_item">
                                     <select class="form-control" id="room" name="room">
-                                        <option>Mixed dorms</option>
-                                        <option>Girls-only dorms</option>
-                                        <option>Private rooms</option>
+                                        <option>Single Room</option>
+                                        <option>Two Sharing Room</option>
+                                        <option>Three Sharing Room</option>
+                                        <option>Four and Five Sharing Room</option>
                                     </select>
                                 </div>
                                 <div class="col-md-2 reg_book_item">
@@ -605,6 +609,28 @@
 <!-- Theme JS -->
 <script src="js/regal_script.js"></script>
 
+<script>
+	$("#book").submit(function(e) {
+    e.preventDefault();
+		const formData = $('#book').serializeArray().reduce(function(obj, item) {
+			obj[item.name] = item.value;
+			return obj;
+		}, {});
 
+		const message = `
+*Hi, I would like to book a room. Here are my details:* %0A%0A
+Arrival: ${formData.arrival}%0A
+Departure: ${formData.departure}%0A
+Name: ${formData.name}%0A
+Phone: ${formData.phone}%0A
+Room Type: ${formData.room}%0A%0A
+
+Looking forward to your confirmation`
+
+	// send whatsapp message
+	const win = window.open(`https://wa.me/918330076255?text=${message}`, '_blank');
+
+	});
+</script>
 </body>
 </html>
