@@ -429,6 +429,15 @@ h2,
 	position: relative;
 	margin-bottom: 80px;
 }
+
+.reg_underline_sub_title {
+	font:800 30px/30px Raleway, Arial;
+	margin-top: 0;
+	display: inline-block;
+	position: relative;
+	margin-bottom: 80px;
+}
+
 .reg_subtitle b {
 	font-weight: 800;
 }
@@ -437,7 +446,8 @@ h2,
 }
 h2:after,
 .reg_subtitle:after,
-.reg_underline_title:after {
+.reg_underline_title:after,
+.reg_underline_sub_title:after {
 	height: 23px;
 	background: #e8484f;
 	display: block;
@@ -449,10 +459,10 @@ h2:after,
 }
 
 .reg_wht_txt h2:after,
-.reg_wht_txt .reg_underline_title:after,
+.reg_wht_txt .reg_underline_title:after .reg_underline_sub_title:after,
 .reg_wht_txt .reg_subtitle:after,
-.reg_wht_txt .reg_block_center .reg_underline_title:after,
-.reg_wht_txt .reg_simple_block .reg_underline_title:after,
+.reg_wht_txt .reg_block_center .reg_underline_title:after .reg_underline_sub_title:after,
+.reg_wht_txt .reg_simple_block .reg_underline_title:after .reg_underline_sub_title:after,
 .reg_wht_txt .reg_simple_block h2:after {
 	background: rgba(255,255,255,0.2);
 }
@@ -3171,7 +3181,6 @@ header {
 	margin-bottom: 20px;
 }
 
-
 /*06.15 Block Animations*/
 #reg_auto_height_anim {
 	perspective:1200px;
@@ -4788,3 +4797,42 @@ header nav.active .reg_logo {
 	}
 }
 
+/* .reg_slider_image_slider {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	animation: reg_image_slider_animation 20s infinite linear; /* Adjust duration to control the speed */
+  /* }  */
+  
+  /* Keyframes for image cycling */
+  .reg_slider_image_slider img:nth-child(1) { 
+	animation-delay: 10s; 
+  } 
+
+  .reg_slider_image_slider img:nth-child(2) { 
+	animation-delay: 20s; 
+  } 
+
+  .reg_slider_image_slider img:nth-child(3) { 
+	animation-delay: 300s; 
+  } 
+
+  /* @keyframes reg_image_slider_animation { 
+	0% { 
+	  opacity: 0; 
+	} 
+	20% { 
+	  opacity: 1; 
+	} 
+	33.33% { 
+	  opacity: 1; 
+	} 
+	53.33% { 
+	  opacity: 0; 
+	} 
+	100% { 
+	  opacity: 0; 
+	} 
+  }  */
